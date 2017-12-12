@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Build;
 import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 
@@ -140,6 +141,9 @@ public class RNNotificationsModule extends ReactContextBaseJavaModule implements
         final Context appContext = getReactApplicationContext().getApplicationContext();
         final Intent tokenFetchIntent = new Intent(appContext, GcmInstanceIdRefreshHandlerService.class);
         tokenFetchIntent.putExtra(extraFlag, true);
-        appContext.startService(tokenFetchIntent);
+        if (Build.VERSION.SDK_INT >= 26) {
+        } else {
+            appContext.startService(tokenFetchIntent);
+        }
     }
 }
