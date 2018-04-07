@@ -4,12 +4,9 @@
     package="com.wix.reactnativenotifications">
 
     <!--
-     Permissions required for enabling GCM.
+     C2D_MESSAGE permissions will be automatically added by FCM SDK
+     https://developers.google.com/cloud-messaging/android/android-migrate-fcm#edit-your-apps-manifest
      -->
-    <permission
-        android:name="${applicationId}.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
-    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
 
     <!-- Ref: http://stackoverflow.com/questions/13602190/java-lang-securityexception-requires-vibrate-permission-on-jelly-bean-4-2 -->
     <uses-permission android:name="android.permission.VIBRATE" android:maxSdkVersion="18" />
